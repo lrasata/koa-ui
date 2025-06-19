@@ -1,4 +1,4 @@
-# koa-ui — React Design System
+# koa-ui — React Design System 🚧
 
 > **Status**: 🚧 Under Construction
 
@@ -7,6 +7,8 @@ A modern, themeable React component library built with [Emotion](https://emotion
 ---
 
 ## Features
+
+> **Status**: 🚧 Under Construction
 
 - ✨ **Themeable** with Emotion
 - 🧱 **Reusable UI components** (Button, Input, etc.)
@@ -73,7 +75,7 @@ You can override:
 
 ## Components
 
-> Under construction
+> **Status**: 🚧 Under Construction
 
 [//]: #
 [//]: # "| Component | Description         |"

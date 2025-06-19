@@ -23,6 +23,10 @@ const StyledButton = styled.button`
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
+/**
+ * Primary UI component for user interaction
+ * @param {Object} props
+ */
 export const Button: React.FC<ButtonProps> = (props) => {
   return <StyledButton {...props} />;
 };

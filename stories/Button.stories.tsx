@@ -1,14 +1,18 @@
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../src";
 
-export default {
+const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
-} as Meta<typeof Button>;
+  tags: ["autodocs"], // <-- this enables automatic docs page
+};
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
+export default meta;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  children: "Click Me",
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+  args: {
+    children: "Click Me",
+  },
 };
