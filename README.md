@@ -4,6 +4,9 @@
 
 A modern, themeable React component library built with [Emotion](https://emotion.sh/docs/introduction) and powered by [Storybook](https://storybook.js.org/) for development and documentation.
 
+[//]: # "the audience would be tech people, I want something which looks professional, 
+clean, friendly, but also accesibility and clarity. with a bit of character but not too much"
+
 ---
 
 ## Features

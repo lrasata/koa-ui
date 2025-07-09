@@ -1,32 +1,75 @@
+/** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 import React from "react";
 
-const StyledButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: white;
-  font-size: ${({ theme }) => theme.fontSizes.base};
-  padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
-  border: none;
-  border-radius: ${({ theme }) => theme.radii.md};
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+type Variant = "primary" | "outline" | "ghost";
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primaryDark};
-  }
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: Variant;
+}
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-`;
+const StyledButton = styled.button<ButtonProps>(
+  ({ theme, variant = "primary" }) => {
+    const base = {
+      fontFamily: theme.fontFamily,
+      fontSize: theme.fontSizes.base,
+      fontWeight: theme.fontWeights.medium,
+      padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+      borderRadius: theme.radii.md,
+      lineHeight: 1.5,
+      border: "none",
+      cursor: "pointer",
+      transition: "all 0.2s ease",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      outline: "none",
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+      "&:disabled": {
+        opacity: 0.6,
+        cursor: "not-allowed",
+      },
 
-/**
- * Primary UI component for user interaction
- * @param {Object} props
- */
-export const Button: React.FC<ButtonProps> = (props) => {
-  return <StyledButton {...props} />;
+      "&:focus-visible": {
+        boxShadow: `0 0 0 2px ${theme.colors.primaryFocus}`,
+      },
+    };
+
+    const variants = {
+      primary: {
+        backgroundColor: theme.colors.primary,
+        color: "#fff",
+        "&:hover": {
+          backgroundColor: theme.colors.primaryHover,
+        },
+      },
+      outline: {
+        backgroundColor: "transparent",
+        border: `1px solid ${theme.colors.border}`,
+        color: theme.colors.text,
+        "&:hover": {
+          backgroundColor: theme.colors.surface,
+        },
+      },
+      ghost: {
+        backgroundColor: "transparent",
+        color: theme.colors.text,
+        "&:hover": {
+          backgroundColor: theme.colors.surface,
+        },
+      },
+    };
+
+    return {
+      ...base,
+      ...variants[variant],
+    };
+  },
+);
+
+export const Button: React.FC<ButtonProps> = ({
+  variant = "primary",
+  ...props
+}) => {
+  return <StyledButton variant={variant} {...props} />;
 };
