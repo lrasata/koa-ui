@@ -1,11 +1,21 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import React from "react";
+import React, { type PropsWithChildren } from "react";
 
-type Variant = "primary" | "outline" | "ghost";
+export type Variant = "primary" | "outline" | "text";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Variant which defines how the button looks.
+   * Options: "primary" | "outline" | "text"
+   */
   variant?: Variant;
+  /** Text content of the button */
+  children: string;
+  /**Boolean to disable the button*/
+  disabled?: boolean;
+  /** Click function handler of the button */
+  onClick?: () => void;
 }
 
 const StyledButton = styled.button<ButtonProps>(
@@ -14,48 +24,67 @@ const StyledButton = styled.button<ButtonProps>(
       fontFamily: theme.fontFamily,
       fontSize: theme.fontSizes.base,
       fontWeight: theme.fontWeights.medium,
-      padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+      lineHeight: theme.lineHeight,
+
+      minHeight: theme.spacing.xl,
+      /** when outline look is used then border appears. In this case we remove the additional px introduced by the border from the padding
+       * to not add extra px to the total width and height */
+      padding:
+        variant === "outline"
+          ? `${parseFloat(theme.spacing.md) - parseFloat(theme.spacing.px)}rem`
+          : theme.spacing.md,
       borderRadius: theme.radii.md,
-      lineHeight: 1.5,
       border: "none",
+
       cursor: "pointer",
-      transition: "all 0.2s ease",
+
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
       outline: "none",
 
+      "&:focus-visible": {
+        boxShadow: `0 0 0 ${theme.spacing.xxs}  ${theme.colors.stroke.focus}`,
+        /** remove the additional px introduced by the border from the padding to not add extra px to the total width and height */
+        padding: `${parseFloat(theme.spacing.md) - parseFloat(theme.spacing.xs)}rem`,
+      },
+
       "&:disabled": {
         opacity: 0.6,
         cursor: "not-allowed",
-      },
-
-      "&:focus-visible": {
-        boxShadow: `0 0 0 2px ${theme.colors.primaryFocus}`,
       },
     };
 
     const variants = {
       primary: {
-        backgroundColor: theme.colors.primary,
-        color: "#fff",
-        "&:hover": {
-          backgroundColor: theme.colors.primaryHover,
+        backgroundColor: theme.colors.primary.main,
+        color: theme.colors.text.inverted,
+        "&:not(:disabled):hover": {
+          backgroundColor: theme.colors.primary.hover,
+        },
+        "&:not(:disabled):active": {
+          backgroundColor: theme.colors.primary.press,
         },
       },
       outline: {
         backgroundColor: "transparent",
-        border: `1px solid ${theme.colors.border}`,
-        color: theme.colors.text,
-        "&:hover": {
-          backgroundColor: theme.colors.surface,
+        border: `${theme.spacing.xxs} solid ${theme.colors.border}`,
+        color: theme.colors.text.default,
+        "&:not(:disabled):hover": {
+          backgroundColor: theme.colors.background.hover,
+        },
+        "&:not(:disabled):active": {
+          backgroundColor: theme.colors.background.press,
         },
       },
-      ghost: {
+      text: {
         backgroundColor: "transparent",
-        color: theme.colors.text,
-        "&:hover": {
-          backgroundColor: theme.colors.surface,
+        color: theme.colors.text.default,
+        "&:not(:disabled):hover": {
+          backgroundColor: theme.colors.background.hover,
+        },
+        "&:not(:disabled):active": {
+          backgroundColor: theme.colors.background.press,
         },
       },
     };
@@ -67,9 +96,21 @@ const StyledButton = styled.button<ButtonProps>(
   },
 );
 
-export const Button: React.FC<ButtonProps> = ({
+/** Clickable button for user interactions */
+export const Button = ({
   variant = "primary",
-  ...props
-}) => {
-  return <StyledButton variant={variant} {...props} />;
+  children,
+  disabled = false,
+  onClick,
+}: PropsWithChildren<ButtonProps>) => {
+  return (
+    <StyledButton
+      variant={variant}
+      onClick={onClick}
+      aria-label={children}
+      disabled={disabled}
+    >
+      {children}
+    </StyledButton>
+  );
 };
