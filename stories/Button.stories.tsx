@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../src";
+import { FaCheckCircle } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRedoAlt } from "react-icons/fa";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -32,6 +35,8 @@ const meta: Meta<typeof Button> = {
       description: "Boolean to disable the button",
       defaultValue: false,
     },
+    startIcon: { control: false },
+    endIcon: { control: false },
   },
 };
 
@@ -39,25 +44,28 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const DefaultButton: Story = {
   args: {
     children: "Click Me",
     onClick: () => alert("Button clicked!"),
   },
 };
 
-export const Outline: Story = {
+export const ButtonsWithIcon: Story = {
   args: {
-    children: "Outline Button",
-    variant: "outline",
     onClick: () => alert("Button clicked!"),
   },
-};
-
-export const Text: Story = {
-  args: {
-    children: "Text Button",
-    variant: "text",
-    onClick: () => alert("Button clicked!"),
-  },
+  render: (args) => (
+    <div style={{ display: "flex", gap: "16px" }}>
+      <Button {...args} variant="primary" startIcon={<FaCheckCircle />}>
+        Button
+      </Button>
+      <Button variant="outline" {...args} endIcon={<FaRegTrashAlt />}>
+        Button
+      </Button>
+      <Button variant="text" {...args} endIcon={<FaRedoAlt />}>
+        Button
+      </Button>
+    </div>
+  ),
 };

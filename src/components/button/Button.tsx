@@ -1,25 +1,34 @@
-/** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import React, { type PropsWithChildren } from "react";
+import {
+  type ButtonHTMLAttributes,
+  type ReactElement,
+  type ReactNode,
+} from "react";
 
 export type Variant = "primary" | "outline" | "text";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Variant which defines how the button looks.
    * Options: "primary" | "outline" | "text"
    */
   variant?: Variant;
   /** Text content of the button */
-  children: string;
+  children: ReactNode;
   /**Boolean to disable the button*/
   disabled?: boolean;
+  /**Boolean to make the button fullwidth*/
+  fullWidth?: boolean;
   /** Click function handler of the button */
   onClick?: () => void;
+  /** Element placed before children */
+  startIcon?: ReactElement;
+  /** Element placed after children */
+  endIcon?: ReactElement;
 }
 
 const StyledButton = styled.button<ButtonProps>(
-  ({ theme, variant = "primary" }) => {
+  ({ theme, variant = "primary", fullWidth }) => {
     const base = {
       fontFamily: theme.fontFamily,
       fontSize: theme.fontSizes.base,
@@ -41,18 +50,19 @@ const StyledButton = styled.button<ButtonProps>(
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
+      gap: theme.spacing.xs,
       outline: "none",
 
       "&:focus-visible": {
         boxShadow: `0 0 0 ${theme.spacing.xxs}  ${theme.colors.stroke.focus}`,
-        /** remove the additional px introduced by the border from the padding to not add extra px to the total width and height */
-        padding: `${parseFloat(theme.spacing.md) - parseFloat(theme.spacing.xs)}rem`,
       },
 
       "&:disabled": {
         opacity: 0.6,
         cursor: "not-allowed",
       },
+
+      width: fullWidth ? "100%" : "auto",
     };
 
     const variants = {
@@ -96,21 +106,27 @@ const StyledButton = styled.button<ButtonProps>(
   },
 );
 
-/** Clickable button for user interactions */
+/** Button for call to action */
 export const Button = ({
   variant = "primary",
   children,
   disabled = false,
+  fullWidth = false,
   onClick,
-}: PropsWithChildren<ButtonProps>) => {
+  startIcon,
+  endIcon,
+}: ButtonProps) => {
   return (
     <StyledButton
       variant={variant}
       onClick={onClick}
-      aria-label={children}
+      aria-label={typeof children === "string" ? children : undefined} // For accessibility
       disabled={disabled}
+      fullWidth={fullWidth}
     >
+      {startIcon}
       {children}
+      {endIcon}
     </StyledButton>
   );
 };

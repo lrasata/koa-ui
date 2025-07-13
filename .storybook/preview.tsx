@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
-import { theme } from "../src";
 import { ThemeProvider } from "@emotion/react";
+import { theme } from "../src";
 
 const preview: Preview = {
   parameters: {
@@ -21,7 +21,14 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ThemeProvider theme={theme}>
-        <div style={{ fontFamily: `${theme.fontFamily} !important` }}>
+        <div
+          style={{
+            fontFamily: `${theme.fontFamily} !important`,
+            width: "600px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <Story />
         </div>
       </ThemeProvider>
