@@ -10,7 +10,11 @@
     "preview": "vite preview",
     "format": "prettier . --write --ignore-path .gitignore --end-of-line auto",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "vitest",
+    "test:unit": "vitest run --project unit",
+    "test:coverage": "vitest run --project unit --coverage",
+    "test:storybook": "vitest run --project storybook"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -27,6 +31,9 @@
     "@storybook/addon-onboarding": "^9.0.16",
     "@storybook/addon-vitest": "^9.0.16",
     "@storybook/react-vite": "^9.0.16",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
@@ -37,6 +44,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-storybook": "^9.0.16",
     "globals": "^16.0.0",
+    "jsdom": "^26.1.0",
     "playwright": "^1.53.1",
     "prettier": "^3.5.3",
     "storybook": "^9.0.16",

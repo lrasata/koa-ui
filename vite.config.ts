@@ -16,6 +16,7 @@ export default defineConfig({
   plugins: [react()],
   test: {
     projects: [
+      //Storybook integration tests
       {
         extends: true,
         plugins: [
@@ -39,6 +40,17 @@ export default defineConfig({
           },
           setupFiles: [".storybook/vitest.setup.ts"],
         },
+      },
+      {
+        test:
+          // Classic unit tests
+          {
+            name: "unit",
+            environment: "jsdom",
+            globals: true,
+            setupFiles: "./src/tests/setUpTests.ts", // create this file (see below)
+            include: ["src/**/*.test.{ts,tsx}"], // typical pattern for test files
+          },
       },
     ],
   },
