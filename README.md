@@ -1,5 +1,7 @@
 # koa-ui — React Design System 🚧
 
+[![CI](https://github.com/lrasata/koa-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/lrasata/koa-ui/actions/workflows/ci.yml)
+
 > **Status**: 🚧 Under Construction
 
 A simple, reusable design system built with **React** and **Emotion** and powered by [Storybook](https://storybook.js.org/) for development and documentation.
