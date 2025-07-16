@@ -26,12 +26,17 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+      - name: Cache Playwright Browsers
         # Cache Playwright browsers between runs to speed up installs
         # Using a simple cache path for Playwright browser binaries
-        env:
-          PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: playwright-browsers-
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
       - name: 🧐 Type check
         run: npm run type-check
@@ -45,6 +50,7 @@ jobs:
       - name: Start Storybook and wait
         run: |
           npx http-server storybook-static -p 6006 &
+          echo $! > storybook.pid
           npx wait-on http://127.0.0.1:6006
 
       - name: 🧪 Run a11y tests
@@ -54,3 +60,7 @@ jobs:
         run: npm run chromatic
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+      - name: Stop Storybook server
+        if: always()
+        run: kill $(cat storybook.pid) || true
