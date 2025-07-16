@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: 🛎️ Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # FULL git history for Chromatic baseline
 
       - name: 🧰 Setup Node.js
         uses: actions/setup-node@v4
@@ -26,6 +28,10 @@ jobs:
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+        # Cache Playwright browsers between runs to speed up installs
+        # Using a simple cache path for Playwright browser binaries
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
 
       - name: 🧐 Type check
         run: npm run type-check
