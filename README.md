@@ -85,6 +85,28 @@ This opens Storybook in your browser to explore and test components interactivel
 
 ---
 
+## Testing
+
+Run unit tests:
+
+```bash
+npm run test
+```
+
+Run unit tests with coverage result:
+
+```bash
+npm run test:coverage
+```
+
+Run accessibility testing:
+
+```bash
+npm run test-storybook
+```
+
+---
+
 ## Theming
 
 All components use Emotion's ThemeProvider for styling.  

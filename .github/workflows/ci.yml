@@ -24,11 +24,22 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
       - name: 🧐 Type check
         run: npm run type-check
+
+      - name: 📦 Build Storybook
+        run: npm run build-storybook
 
       - name: 🧪 Run unit tests with coverage
         run: npm run test:coverage
 
-      - name: 📦 Build Storybook
-        run: npm run build-storybook
+      - name: Start Storybook and wait
+        run: |
+          npx http-server storybook-static -p 6006 &
+          npx wait-on http://127.0.0.1:6006
+
+      - name: 🧪 Run a11y tests
+        run: npm run test-storybook -- --url http://127.0.0.1:6006 --testTimeout=60000
