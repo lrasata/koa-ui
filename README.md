@@ -1,11 +1,25 @@
-# koa-ui — React Design System 🚧
+# Koa UI — React Design System 🚧
 
 [![CI](https://github.com/lrasata/koa-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/lrasata/koa-ui/actions/workflows/ci.yml)
 
 > **Status**: 🚧 Under Construction
 
+<div style="text-align: center;">
+<img src="docs/koa.png" alt="koa ui logo" width="200" />
+</div>
+
 A simple, reusable design system built with **React** and **Emotion** and powered by [Storybook](https://storybook.js.org/) for development and documentation.
 It includes core components such as buttons, inputs, cards, modals, layout helpers, and more — all built with consistency and flexibility in mind.
+
+## Table of content
+
+- [Purpose](#purpose)
+- [Features](#features)
+- [Tech stack](#tech-stack)
+- [Installation](#installation)
+- [Running storybook](#running-storybook)
+- [Theming](#theming)
+- [Components](#components)
 
 ## Purpose
 
@@ -42,7 +56,8 @@ it’s a fun side project that keeps growing as I build more things.
 
 - **React** – component-based structure
 - **TypeScript** – type safety
-- **Emotion CSS** – scoped, theme-aware styling
+- **Emotion** – scoped, theme-aware styling
+- **Storybook**
 
 ---
 

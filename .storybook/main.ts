@@ -1,16 +1,16 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
-  stories: ["../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: [
-    "@storybook/addon-docs",
-    "@storybook/addon-vitest",
+  stories: [
+    "../stories/**/*.mdx",
+    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
+  addons: ["@storybook/addon-docs"],
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-  async viteFinal(config, { configType }) {
+  async viteFinal(config) {
     return {
       ...config,
       plugins: [...(config.plugins ?? [])], // clone plugins array to avoid mutation errors
