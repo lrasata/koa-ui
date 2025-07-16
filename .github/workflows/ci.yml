@@ -1,4 +1,4 @@
-name: Koa-UI-CI
+name: Koa-UI-CI-CD
 
 on:
   push:
@@ -43,3 +43,8 @@ jobs:
 
       - name: 🧪 Run a11y tests
         run: npm run test-storybook -- --url http://127.0.0.1:6006 --testTimeout=60000
+
+      - name: 🚀 Publish to Chromatic
+        run: npm run chromatic
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

@@ -14,7 +14,8 @@
     "build-storybook": "storybook build",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
