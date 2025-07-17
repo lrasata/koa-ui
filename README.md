@@ -5,7 +5,7 @@
 > **Status**: 🚧 Under Construction
 
 <div style="text-align: center;">
-<img src="docs/koa.png" alt="koa ui logo" width="200" />
+<img src="https://raw.githubusercontent.com/lrasata/koa-ui/refs/heads/main/docs/koa.png" alt="koa ui logo" width="200" />
 </div>
 
 A simple, reusable design system built with **React** and **Emotion** and powered by [Storybook](https://storybook.js.org/) for development and documentation.
