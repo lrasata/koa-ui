@@ -30,10 +30,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const StyledButton = styled.button<ButtonProps>(
   ({ theme, variant = "primary", fullWidth }) => {
     const base = {
-      fontFamily: theme.fontFamily,
-      fontSize: theme.fontSizes.base,
-      fontWeight: theme.fontWeights.medium,
-      lineHeight: theme.lineHeight,
+      ...theme.typography.button,
 
       minHeight: theme.spacing.xl,
       /** when outline look is used then border appears. In this case we remove the additional px introduced by the border from the padding

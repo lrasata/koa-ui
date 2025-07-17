@@ -133,12 +133,11 @@ You can override:
 
 > **Status**: 🚧 Under Construction
 
-| Component | Description         |
-| --------- | ------------------- |
-| `Button`  | Primary actions     |
-| `Input`   | Text input fields   |
-| `Card`    | Container UI blocks |
-| ...       | More coming soon    |
+| Component    | Description                             |
+|--------------|-----------------------------------------|
+| `Typography` | Improves readability, defines hierarchy |
+| `Button`     | Call to action                          |
+| ...          | More in progress                        |
 
 ---
 
