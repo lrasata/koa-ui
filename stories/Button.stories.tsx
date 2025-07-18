@@ -18,11 +18,11 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: { type: "select" },
-      options: ["primary", "outline", "text"],
+      options: ["primary", "outline", "text", "danger", "success"],
       description: "Variant which defines how the button looks",
       table: {
         type: {
-          summary: '"primary" | "outline" | "text"',
+          summary: '"primary" | "outline" | "text" | "danger" | "success"',
         },
       },
     },
@@ -51,21 +51,83 @@ export const DefaultButton: Story = {
   },
 };
 
-export const ButtonsWithIcon: Story = {
+export const AllButtonVariant: Story = {
   args: {
     onClick: () => alert("Button clicked!"),
   },
   render: (args) => (
-    <div style={{ display: "flex", gap: "16px" }}>
-      <Button {...args} variant="primary" startIcon={<FaCheckCircle />}>
-        Button
-      </Button>
-      <Button variant="outline" {...args} endIcon={<FaRegTrashAlt />}>
-        Button
-      </Button>
-      <Button variant="text" {...args} endIcon={<FaRedoAlt />}>
-        Button
-      </Button>
-    </div>
+      <div style={{display: "grid", gap: "16px", gridTemplateColumns: "repeat(6, max-content)"}}>
+        <Button {...args} variant="primary">
+          Primary
+        </Button>
+        <Button {...args} variant="primary" disabled>
+          Disabled
+        </Button>
+        <Button variant="outline" {...args}>
+          Outline
+        </Button>
+        <Button variant="outline" {...args} disabled>
+          Disabled
+        </Button>
+        <Button variant="text" {...args}>
+          Text
+        </Button>
+        <Button variant="text" {...args} disabled>
+          Disabled
+        </Button>
+
+        <Button {...args} variant="primary" startIcon={<FaCheckCircle/>}>
+          Primary
+        </Button>
+        <Button {...args} variant="primary" startIcon={<FaCheckCircle/>} disabled>
+          Disabled
+        </Button>
+        <Button variant="outline" {...args} startIcon={<FaRegTrashAlt/>}>
+          Outline
+        </Button>
+        <Button variant="outline" {...args} startIcon={<FaRegTrashAlt/>} disabled>
+          Disabled
+        </Button>
+        <Button variant="text" {...args} startIcon={<FaRedoAlt/>}>
+          Text
+        </Button>
+        <Button variant="text" {...args} startIcon={<FaRedoAlt/>} disabled>
+          Disabled
+        </Button>
+
+        <Button {...args} variant="primary" endIcon={<FaCheckCircle/>}>
+          Primary
+        </Button>
+        <Button {...args} variant="primary" endIcon={<FaCheckCircle/>} disabled>
+          Disabled
+        </Button>
+        <Button variant="outline" {...args} endIcon={<FaRegTrashAlt/>}>
+          Outline
+        </Button>
+        <Button variant="outline" {...args} endIcon={<FaRegTrashAlt/>} disabled>
+          Disabled
+        </Button>
+        <Button variant="text" {...args} endIcon={<FaRedoAlt/>}>
+          Text
+        </Button>
+        <Button variant="text" {...args} endIcon={<FaRedoAlt/>} disabled>
+          Disabled
+        </Button>
+
+          <Button {...args} variant="danger">
+              Danger
+          </Button>
+          <Button {...args} variant="danger" disabled>
+              Disabled
+          </Button>
+          <Button {...args} variant="success">
+              Success
+          </Button>
+          <Button {...args} variant="success" disabled>
+              Disabled
+          </Button>
+      </div>
+
+
   ),
 };

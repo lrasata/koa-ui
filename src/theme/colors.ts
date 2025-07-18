@@ -19,9 +19,15 @@ export const colors = {
     focus: "#00A6F4",
   },
   danger: {
-    main: "#b91c1c",
+    light: "#fca5a5",       // Light red (hover, background highlight)
+    main: "#b91c1c",         // Main red (default)
+    dark: "#7f1d1d",         // Dark red (pressed or border)
+    contrastText: "#ffffff", // White text on red buttons
   },
   success: {
-    main: "#047857",
+    light: "#6ee7b7",       // Light green (hover, background highlight)
+    main: "#047857",         // Main green (default)
+    dark: "#065f46",         // Dark green (pressed or border)
+    contrastText: "#ffffff", // White text on green buttons
   },
 };
