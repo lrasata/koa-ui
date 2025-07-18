@@ -49,6 +49,11 @@ export const DefaultButton: Story = {
     children: "Click Me",
     onClick: () => alert("Button clicked!"),
   },
+  render: (args) => (
+    <div style={{ width: "600px", display: "flex", justifyContent: "center" }}>
+      <Button {...args}>{args.children}</Button>
+    </div>
+  ),
 };
 
 export const AllButtonVariant: Story = {

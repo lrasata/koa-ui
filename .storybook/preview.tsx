@@ -21,16 +21,7 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ThemeProvider theme={theme}>
-        <div
-          style={{
-            fontFamily: `${theme.fonts.fontFamily} !important`,
-            width: "600px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Story />
-        </div>
+        <Story />
       </ThemeProvider>
     ),
   ],
