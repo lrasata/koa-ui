@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { theme, Typography as AppTypography, typographyVariants } from "../src";
+import { theme, Typography as KoaTypography, typographyVariants } from "../src";
 
-const meta: Meta<typeof AppTypography> = {
+const meta: Meta<typeof KoaTypography> = {
   title: "Foundations/Typography",
-  component: AppTypography,
+  component: KoaTypography,
   tags: ["autodocs"],
 
   argTypes: {
@@ -51,7 +51,7 @@ const meta: Meta<typeof AppTypography> = {
 
 export default meta;
 
-type Story = StoryObj<typeof AppTypography>;
+type Story = StoryObj<typeof KoaTypography>;
 
 export const Typography: Story = {
   args: {
@@ -59,64 +59,64 @@ export const Typography: Story = {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla felis est, sollicitudin vitae nisi gravida, facilisis dictum augue. " +
       "Sed sagittis a lectus convallis maximus.",
   },
-  render: (args) => <AppTypography {...args}>{args.children}</AppTypography>,
+  render: (args) => <KoaTypography {...args}>{args.children}</KoaTypography>,
 };
 
 export const AllTypographies: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <AppTypography variant="h1" component="h1">
+      <KoaTypography variant="h1" component="h1">
         H1. Lorem ipsum dolor sit amet
-      </AppTypography>
-      <AppTypography variant="h2" component="h2">
+      </KoaTypography>
+      <KoaTypography variant="h2" component="h2">
         H2. Lorem ipsum dolor sit amet
-      </AppTypography>
-      <AppTypography variant="h3" component="h3">
+      </KoaTypography>
+      <KoaTypography variant="h3" component="h3">
         H3. Lorem ipsum dolor sit amet
-      </AppTypography>
-      <AppTypography variant="h4" component="h4">
+      </KoaTypography>
+      <KoaTypography variant="h4" component="h4">
         H4. Lorem ipsum dolor sit amet
-      </AppTypography>
-      <AppTypography variant="subtitle">
+      </KoaTypography>
+      <KoaTypography variant="subtitle">
         Subtitle. Lorem ipsum dolor sit amet
-      </AppTypography>
-      <AppTypography variant="body">
+      </KoaTypography>
+      <KoaTypography variant="body">
         Body. Lorem ipsum dolor sit amet
-      </AppTypography>
-      <AppTypography variant="button">
+      </KoaTypography>
+      <KoaTypography variant="button">
         Button. Lorem ipsum dolor sit amet
-      </AppTypography>
-      <AppTypography variant="caption">
+      </KoaTypography>
+      <KoaTypography variant="caption">
         caption. Lorem ipsum dolor sit amet
-      </AppTypography>
+      </KoaTypography>
       <br />
-      <AppTypography variant="body" color="default">
+      <KoaTypography variant="body" color="default">
         Text body with default color
-      </AppTypography>
+      </KoaTypography>
       <div style={{ backgroundColor: theme.colors.text.default }}>
-        <AppTypography variant="body" color="inverted">
+        <KoaTypography variant="body" color="inverted">
           Text body with inverted color
-        </AppTypography>
+        </KoaTypography>
       </div>
-      <AppTypography variant="body" color="primary">
+      <KoaTypography variant="body" color="primary">
         Text body with primary color
-      </AppTypography>
-      <AppTypography variant="body" color="danger">
+      </KoaTypography>
+      <KoaTypography variant="body" color="danger">
         Text body with danger color
-      </AppTypography>
-      <AppTypography variant="body" color="success">
+      </KoaTypography>
+      <KoaTypography variant="body" color="success">
         Text body with success color
-      </AppTypography>
+      </KoaTypography>
       <br />
-      <AppTypography variant="body" weight="regular">
+      <KoaTypography variant="body" weight="regular">
         Text body with regular font weight
-      </AppTypography>
-      <AppTypography variant="body" weight="medium">
+      </KoaTypography>
+      <KoaTypography variant="body" weight="medium">
         Text body with medium font weight
-      </AppTypography>
-      <AppTypography variant="body" weight="semibold">
+      </KoaTypography>
+      <KoaTypography variant="body" weight="semibold">
         Text body with semi-bold font weight
-      </AppTypography>
+      </KoaTypography>
     </div>
   ),
 };

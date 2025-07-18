@@ -23,7 +23,7 @@ const preview: Preview = {
       <ThemeProvider theme={theme}>
         <div
           style={{
-            fontFamily: `${theme.fontFamily} !important`,
+            fontFamily: `${theme.fonts.fontFamily} !important`,
             width: "600px",
             display: "flex",
             justifyContent: "center",

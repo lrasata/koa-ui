@@ -5,7 +5,12 @@ import {
   type ReactNode,
 } from "react";
 
-export type ButtonVariant = "primary" | "outline" | "text" | "danger" | "success";
+export type ButtonVariant =
+  | "primary"
+  | "outline"
+  | "text"
+  | "danger"
+  | "success";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -65,18 +70,18 @@ const StyledButton = styled.button<ButtonProps>(
     const variants = {
       primary: {
         backgroundColor: theme.colors.primary.main,
-        color: theme.colors.text.inverted,
+        color: theme.colors.primary.contrastText,
         "&:not(:disabled):hover": {
-          backgroundColor: theme.colors.primary.hover,
+          backgroundColor: theme.colors.primary.light,
         },
         "&:not(:disabled):active": {
-          backgroundColor: theme.colors.primary.press,
+          backgroundColor: theme.colors.primary.dark,
         },
       },
       outline: {
         backgroundColor: "transparent",
         border: `${theme.spacing.xxs} solid ${theme.colors.border}`,
-        color: theme.colors.text.default,
+        color: theme.colors.primary.main,
         "&:not(:disabled):hover": {
           backgroundColor: theme.colors.background.hover,
         },
@@ -86,7 +91,7 @@ const StyledButton = styled.button<ButtonProps>(
       },
       text: {
         backgroundColor: "transparent",
-        color: theme.colors.text.default,
+        color: theme.colors.primary.main,
         "&:not(:disabled):hover": {
           backgroundColor: theme.colors.background.hover,
         },

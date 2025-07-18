@@ -1,7 +1,6 @@
-// src/emotion.d.ts
 import "@emotion/react";
-import type { AppTheme } from "./theme/theme";
+import type { KoaTheme } from "./theme/defaultTheme.ts";
 
 declare module "@emotion/react" {
-  export interface Theme extends AppTheme {}
+  export interface Theme extends KoaTheme {}
 }

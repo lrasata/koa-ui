@@ -109,11 +109,31 @@ npm run test-storybook
 
 ## Theming
 
-All components use Emotion's ThemeProvider for styling.  
-Customize the theme in `src/theme/theme.ts`
+All components use Emotion's ThemeProvider for styling.
 
 ```ts
-<ThemeProvider theme={theme}>
+// customTheme.ts
+import { createTheme } from "./createTheme";
+
+const customTheme = createTheme({
+    colors: {
+        primary: {
+            main: "#1d4ed8",
+            light: "#2563eb",
+            dark: "#1e40af",
+            contrastText: "#fff",
+        },
+    },
+    fonts: {
+        fontFamily: "'Inter', sans-serif",
+    },
+});
+
+// app.ts
+import { ThemeProvider } from "@emotion/react";
+import { customTheme } from "./theme/customTheme";
+
+<ThemeProvider theme={customTheme}>
   <App />
 </ThemeProvider>
 ```
@@ -121,11 +141,10 @@ Customize the theme in `src/theme/theme.ts`
 You can override:
 
 - `colors`
-- `fontSizes`
-- `spacing`
+- `fonts`
+- `typography`
 - `radii`
-- `shadows`
-  ...and more.
+- `spacing`
 
 ---
 
@@ -134,7 +153,7 @@ You can override:
 > **Status**: 🚧 Under Construction
 
 | Component    | Description                             |
-|--------------|-----------------------------------------|
+| ------------ | --------------------------------------- |
 | `Typography` | Improves readability, defines hierarchy |
 | `Button`     | Call to action                          |
 | ...          | More in progress                        |

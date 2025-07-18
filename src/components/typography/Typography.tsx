@@ -1,7 +1,7 @@
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { type ElementType, type HTMLAttributes, type ReactNode } from "react";
-import type { AppTheme } from "../../theme/theme.ts";
+import type { KoaTheme } from "../../theme/theme.ts";
 
 export const typographyVariants = [
   "h1",
@@ -20,9 +20,9 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   /** Variant which defines how the text looks */
   variant?: TypographyVariant;
   /** Color defines which color to use*/
-  color?: keyof AppTheme["colors"]["text"] | "primary" | "danger" | "success";
+  color?: keyof KoaTheme["colors"]["text"] | "primary" | "danger" | "success";
   /** Weight defines which font weight to use*/
-  weight?: keyof AppTheme["fonts"]["fontWeights"];
+  weight?: keyof KoaTheme["fonts"]["fontWeights"];
   /** Component defines which html tag to associated it with*/
   component?: ElementType;
   /** Text to display*/
@@ -79,7 +79,7 @@ export const Typography = ({
   ellipsis,
   ...props
 }: TypographyProps) => {
-  const theme = useTheme() as AppTheme;
+  const theme = useTheme() as KoaTheme;
 
   return (
     <StyledTypography

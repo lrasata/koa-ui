@@ -56,78 +56,92 @@ export const AllButtonVariant: Story = {
     onClick: () => alert("Button clicked!"),
   },
   render: (args) => (
-      <div style={{display: "grid", gap: "16px", gridTemplateColumns: "repeat(6, max-content)"}}>
-        <Button {...args} variant="primary">
-          Primary
-        </Button>
-        <Button {...args} variant="primary" disabled>
-          Disabled
-        </Button>
-        <Button variant="outline" {...args}>
-          Outline
-        </Button>
-        <Button variant="outline" {...args} disabled>
-          Disabled
-        </Button>
-        <Button variant="text" {...args}>
-          Text
-        </Button>
-        <Button variant="text" {...args} disabled>
-          Disabled
-        </Button>
+    <div
+      style={{
+        display: "grid",
+        gap: "16px",
+        gridTemplateColumns: "repeat(6, max-content)",
+      }}
+    >
+      <Button {...args} variant="primary">
+        Primary
+      </Button>
+      <Button {...args} variant="primary" disabled>
+        Disabled
+      </Button>
+      <Button variant="outline" {...args}>
+        Outline
+      </Button>
+      <Button variant="outline" {...args} disabled>
+        Disabled
+      </Button>
+      <Button variant="text" {...args}>
+        Text
+      </Button>
+      <Button variant="text" {...args} disabled>
+        Disabled
+      </Button>
 
-        <Button {...args} variant="primary" startIcon={<FaCheckCircle/>}>
-          Primary
-        </Button>
-        <Button {...args} variant="primary" startIcon={<FaCheckCircle/>} disabled>
-          Disabled
-        </Button>
-        <Button variant="outline" {...args} startIcon={<FaRegTrashAlt/>}>
-          Outline
-        </Button>
-        <Button variant="outline" {...args} startIcon={<FaRegTrashAlt/>} disabled>
-          Disabled
-        </Button>
-        <Button variant="text" {...args} startIcon={<FaRedoAlt/>}>
-          Text
-        </Button>
-        <Button variant="text" {...args} startIcon={<FaRedoAlt/>} disabled>
-          Disabled
-        </Button>
+      <Button {...args} variant="primary" startIcon={<FaCheckCircle />}>
+        Primary
+      </Button>
+      <Button
+        {...args}
+        variant="primary"
+        startIcon={<FaCheckCircle />}
+        disabled
+      >
+        Disabled
+      </Button>
+      <Button variant="outline" {...args} startIcon={<FaRegTrashAlt />}>
+        Outline
+      </Button>
+      <Button
+        variant="outline"
+        {...args}
+        startIcon={<FaRegTrashAlt />}
+        disabled
+      >
+        Disabled
+      </Button>
+      <Button variant="text" {...args} startIcon={<FaRedoAlt />}>
+        Text
+      </Button>
+      <Button variant="text" {...args} startIcon={<FaRedoAlt />} disabled>
+        Disabled
+      </Button>
 
-        <Button {...args} variant="primary" endIcon={<FaCheckCircle/>}>
-          Primary
-        </Button>
-        <Button {...args} variant="primary" endIcon={<FaCheckCircle/>} disabled>
-          Disabled
-        </Button>
-        <Button variant="outline" {...args} endIcon={<FaRegTrashAlt/>}>
-          Outline
-        </Button>
-        <Button variant="outline" {...args} endIcon={<FaRegTrashAlt/>} disabled>
-          Disabled
-        </Button>
-        <Button variant="text" {...args} endIcon={<FaRedoAlt/>}>
-          Text
-        </Button>
-        <Button variant="text" {...args} endIcon={<FaRedoAlt/>} disabled>
-          Disabled
-        </Button>
+      <Button {...args} variant="primary" endIcon={<FaCheckCircle />}>
+        Primary
+      </Button>
+      <Button {...args} variant="primary" endIcon={<FaCheckCircle />} disabled>
+        Disabled
+      </Button>
+      <Button variant="outline" {...args} endIcon={<FaRegTrashAlt />}>
+        Outline
+      </Button>
+      <Button variant="outline" {...args} endIcon={<FaRegTrashAlt />} disabled>
+        Disabled
+      </Button>
+      <Button variant="text" {...args} endIcon={<FaRedoAlt />}>
+        Text
+      </Button>
+      <Button variant="text" {...args} endIcon={<FaRedoAlt />} disabled>
+        Disabled
+      </Button>
 
-          <Button {...args} variant="danger">
-              Danger
-          </Button>
-          <Button {...args} variant="danger" disabled>
-              Disabled
-          </Button>
-          <Button {...args} variant="success">
-              Success
-          </Button>
-          <Button {...args} variant="success" disabled>
-              Disabled
-          </Button>
-      </div>
-
-
+      <Button {...args} variant="danger">
+        Danger
+      </Button>
+      <Button {...args} variant="danger" disabled>
+        Disabled
+      </Button>
+      <Button {...args} variant="success">
+        Success
+      </Button>
+      <Button {...args} variant="success" disabled>
+        Disabled
+      </Button>
+    </div>
   ),
 };
