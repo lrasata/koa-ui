@@ -1,7 +1,7 @@
 export const colors = {
   background: {
     default: "#ffffff",
-    surface: "#f9fafb", // light surface
+    surface: "#f9fafb", // ex: for Card background color
     hover: "#e5e7eb",
     press: "#e0e0e0",
   },

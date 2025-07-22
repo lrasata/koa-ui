@@ -1,7 +1,8 @@
+/** @jsxImportSource @emotion/react */
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { type ElementType, type HTMLAttributes, type ReactNode } from "react";
-import type { KoaTheme } from "../../theme/theme.ts";
+import type { KoaTheme } from "../../theme/defaultTheme.ts";
 
 export const typographyVariants = [
   "h1",
