@@ -8,7 +8,7 @@ export const defaultTheme = {
   typography,
   radii: {
     sm: "4px",
-    md: "8px",
+    md: "6px",
     lg: "12px",
   },
   spacing: {
@@ -16,6 +16,7 @@ export const defaultTheme = {
     xxs: "0.125rem", // 2px
     xs: "0.25rem", // 4px
     sm: "0.5rem", // 8px
+    base: "0.75rem", // 12px
     md: "1rem", // 16px
     lg: "1.5rem", // 24px
     xl: "2rem", // 32px

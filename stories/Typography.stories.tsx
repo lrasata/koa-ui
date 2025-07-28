@@ -14,7 +14,7 @@ const meta: Meta<typeof KoaTypography> = {
       table: {
         type: {
           summary:
-            '"h1" | "h2" | "h3" | "h4" | "subtitle" | "body" | "button"| "caption"',
+            '"h1" | "h2" | "h3" | "h4" | "subtitle" | "body" | "button" | "label" | "caption"',
         },
       },
     },
@@ -85,6 +85,9 @@ export const AllTypographies: Story = {
       </KoaTypography>
       <KoaTypography variant="button">
         Button. Lorem ipsum dolor sit amet
+      </KoaTypography>
+      <KoaTypography variant="label">
+        Label. Lorem ipsum dolor sit amet
       </KoaTypography>
       <KoaTypography variant="caption">
         caption. Lorem ipsum dolor sit amet

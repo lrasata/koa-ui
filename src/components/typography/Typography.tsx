@@ -12,6 +12,7 @@ export const typographyVariants = [
   "subtitle",
   "body",
   "button",
+  "label",
   "caption",
 ] as const;
 

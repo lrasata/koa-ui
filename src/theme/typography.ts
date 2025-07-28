@@ -37,11 +37,17 @@ export const typography = {
     fontWeight: fonts.fontWeights.regular,
     lineHeight: 1.5,
   },
-  caption: {
+  label: {
     fontFamily: fonts.fontFamily,
     fontSize: fonts.fontSizes.sm,
-    fontWeight: fonts.fontWeights.regular,
+    fontWeight: fonts.fontWeights.medium,
     lineHeight: 1.5,
+  },
+  caption: {
+    fontFamily: fonts.fontFamily,
+    fontSize: fonts.fontSizes.xs,
+    fontWeight: fonts.fontWeights.regular,
+    lineHeight: 1.4,
   },
   button: {
     fontFamily: fonts.fontFamily,

@@ -7,6 +7,7 @@ export const colors = {
   },
   text: {
     default: "#374151",
+    secondary: "#6b7280",
     inverted: "#ffffff",
   },
   border: "#e5e7eb",
