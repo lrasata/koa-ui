@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { TextField } from "./TextField";
 import { theme } from "../../theme/theme.ts";
 import { ThemeProvider } from "@emotion/react";
+import { fireEvent } from "../../tests/utils/test-utils.tsx";
 
 describe("TextField", () => {
   it("renders the label and required asterisk", () => {
@@ -66,12 +67,34 @@ describe("TextField", () => {
     expect(input).toHaveAttribute("id", "email-input");
   });
 
-  // it("forwards props to input element", () => {
-  //     render(<ThemeProvider theme={theme}><TextField label="Age" type="number" name="age" /></ThemeProvider>);
-  //     const input = screen.getByLabelText("Age");
-  //     expect(input).toHaveAttribute("type", "number");
-  //     expect(input).toHaveAttribute("name", "age");
-  // });
+  it("associates correct type to input element", () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <TextField label="Age" type="number" />
+      </ThemeProvider>,
+    );
+    const input = screen.getByLabelText("Age");
+    expect(input).toHaveAttribute("type", "number");
+  });
+
+  it("shows the toggle password visibility button when input type is password", () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <TextField label="Password" type="password" />
+      </ThemeProvider>,
+    );
+    const input = screen.getByLabelText("Password");
+    expect(input).toHaveAttribute("type", "password");
+
+    const toggleButton = screen.getByRole("button", { name: /show password/i });
+    expect(toggleButton).toBeInTheDocument();
+
+    fireEvent.click(toggleButton);
+    const hideToggleButton = screen.getByRole("button", {
+      name: /hide password/i,
+    });
+    expect(hideToggleButton).toBeInTheDocument();
+  });
 
   it("input focus triggers outline style", async () => {
     render(

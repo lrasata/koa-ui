@@ -150,12 +150,11 @@ You can override:
 
 ## Components
 
-> **Status**: 🚧 Under Construction
-
 | Component    | Description                             |
-| ------------ | --------------------------------------- |
+|--------------|-----------------------------------------|
 | `Typography` | Improves readability, defines hierarchy |
-| `Button`     | Call to action                          |
+| `Button`     | Calls to action                         |
+| `TextField`  | Lets user enter or edit a text          |
 | ...          | More in progress                        |
 
 ---

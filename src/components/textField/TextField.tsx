@@ -1,11 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import type { InputHTMLAttributes, ReactNode } from "react";
+import { type InputHTMLAttributes, type ReactNode, useState } from "react";
 import { Typography } from "../typography/Typography.tsx";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Label : Text to display above the input field */
   label?: string;
+  /** Type of input field : 'text', 'password', 'number', 'email' */
+  type?: string;
   /** Input field Id */
   id?: string;
   /** Error message to display below the input field */
@@ -24,6 +28,7 @@ const StyledDivWrapper = styled.div(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: theme.spacing.xs,
+  overflow: "visible",
 }));
 
 const InputWrapper = styled.div(({}) => ({
@@ -35,19 +40,44 @@ const InputWrapper = styled.div(({}) => ({
 const IconWrapper = styled.div<{ position: "start" | "end" }>(
   ({ theme, position }) => ({
     position: "absolute",
+    [position === "start" ? "left" : "right"]: theme.spacing.sm,
     top: "50%",
     transform: "translateY(-50%)",
     color: theme.colors.text.secondary,
     pointerEvents: "none",
     userSelect: "none",
     padding: `0 ${theme.spacing.xs}`,
-    [position === "start" ? "left" : "right"]: theme.spacing.sm,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
   }),
 );
+
+const StyledPasswordToggleButton = styled.button(({ theme }) => ({
+  position: "absolute",
+  right: theme.spacing.base,
+  color: theme.colors.text.secondary,
+  padding: theme.spacing.sm,
+  border: "none",
+  background: "none",
+  cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  "&:hover": {
+    background: theme.colors.background.hover,
+    borderRadius: "50%",
+  },
+
+  "&:focus": {
+    background: theme.colors.background.hover,
+    outline: `2px solid ${theme.colors.stroke.focus}`,
+    borderRadius: "50%",
+    border: "none",
+  },
+}));
 
 const StyledInput = styled.input<{
   hasError?: boolean;
@@ -78,6 +108,7 @@ const StyledInput = styled.input<{
 /** TextField lets user enter or edit a text */
 export const TextField = ({
   label,
+  type = "text",
   id,
   error,
   helperText,
@@ -89,6 +120,14 @@ export const TextField = ({
   const inputId =
     id || props.name || `input-${Math.random().toString(36).substring(2, 9)}`;
 
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // Determine input type to show
+  const inputType = type === "password" && showPassword ? "text" : type;
   return (
     <StyledDivWrapper>
       {label && (
@@ -105,9 +144,21 @@ export const TextField = ({
           id={inputId}
           hasError={!!error}
           hasStartIcon={!!startIcon}
-          hasEndIcon={!!endIcon}
+          hasEndIcon={!!endIcon || type === "password"}
+          type={inputType}
           {...props}
         />
+
+        {type === "password" && (
+          <StyledPasswordToggleButton
+            type="button"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? <FaEye /> : <FaEyeSlash />}
+          </StyledPasswordToggleButton>
+        )}
+
         {endIcon && <IconWrapper position="end">{endIcon}</IconWrapper>}
       </InputWrapper>
 

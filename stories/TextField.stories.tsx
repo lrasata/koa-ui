@@ -15,6 +15,9 @@ const meta: Meta<typeof TextField> = {
     label: {
       control: { type: "text" },
     },
+    type: {
+      control: { type: "text" },
+    },
     required: {
       control: { type: "boolean" },
     },
@@ -49,13 +52,33 @@ export const DefaultTextField: Story = {
   ),
 };
 
-export const TextFieldWithIcons: Story = {
-  args: {
-    label: "Text field",
-  },
+export const AllTextFieldVariant: Story = {
   render: (args) => (
-    <div style={{ width: "500px" }}>
-      <TextField {...args} startIcon={<FaSearch />} endIcon={<FaSync />} />
+    <div
+      style={{
+        width: "500px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+      }}
+    >
+      <TextField
+        label="Text Field with start icon"
+        {...args}
+        startIcon={<FaSearch />}
+      />
+      <TextField
+        label="Text Field with end icon"
+        {...args}
+        endIcon={<FaSync />}
+      />
+      <TextField
+        label="Text Field with start and end icons"
+        {...args}
+        startIcon={<FaSearch />}
+        endIcon={<FaSync />}
+      />
+      <TextField label="Password" type="password" {...args} />
     </div>
   ),
 };
