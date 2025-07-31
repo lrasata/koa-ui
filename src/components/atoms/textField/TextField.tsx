@@ -1,6 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import { type InputHTMLAttributes, type ReactNode, useState } from "react";
+import {
+  forwardRef,
+  type InputHTMLAttributes,
+  type ReactNode,
+  useState,
+} from "react";
 import { Typography } from "../typography/Typography.tsx";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
@@ -18,10 +23,10 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   helperText?: string;
   /** Boolean to specify if input is required */
   required?: boolean;
-  /** Icon to display at the start inside the input */
-  startIcon?: ReactNode;
-  /** Icon to display at the end inside the input */
-  endIcon?: ReactNode;
+  /** Element to display at the start inside the input */
+  startAdornment?: ReactNode;
+  /** Element to display at the end inside the input */
+  endAdornment?: ReactNode;
 }
 
 const StyledDivWrapper = styled.div(({ theme }) => ({
@@ -37,20 +42,19 @@ const InputWrapper = styled.div(({}) => ({
   alignItems: "center",
 }));
 
-const IconWrapper = styled.div<{ position: "start" | "end" }>(
+const AdornmentWrapper = styled.div<{ position: "start" | "end" }>(
   ({ theme, position }) => ({
     position: "absolute",
     [position === "start" ? "left" : "right"]: theme.spacing.sm,
     top: "50%",
     transform: "translateY(-50%)",
     color: theme.colors.text.secondary,
-    pointerEvents: "none",
-    userSelect: "none",
     padding: `0 ${theme.spacing.xs}`,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
+    zIndex: 1,
   }),
 );
 
@@ -92,6 +96,7 @@ const StyledInput = styled.input<{
   paddingRight: hasEndIcon
     ? `calc(${theme.spacing.base} + 40px)`
     : theme.spacing.base,
+  height: theme.spacing.lg,
   borderRadius: theme.spacing.sm,
   fontSize: theme.fonts.fontSizes.sm,
   fontFamily: theme.fonts.fontFamily,
@@ -106,69 +111,77 @@ const StyledInput = styled.input<{
 }));
 
 /** TextField lets user enter or edit a text */
-export const TextField = ({
-  label,
-  type = "text",
-  id,
-  error,
-  helperText,
-  required,
-  startIcon,
-  endIcon,
-  ...props
-}: TextFieldProps) => {
-  const inputId =
-    id || props.name || `input-${Math.random().toString(36).substring(2, 9)}`;
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+  function TextField(
+    {
+      label,
+      type = "text",
+      id,
+      error,
+      helperText,
+      required,
+      startAdornment,
+      endAdornment,
+      ...props
+    },
+    ref,
+  ) {
+    const inputId =
+      id || props.name || `input-${Math.random().toString(36).substring(2, 9)}`;
 
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+    const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-  // Determine input type to show
-  const inputType = type === "password" && showPassword ? "text" : type;
-  return (
-    <StyledDivWrapper>
-      {label && (
-        <Typography variant="label">
-          <label htmlFor={inputId}>
-            {label} {required && <span aria-label="required">*</span>}
-          </label>
-        </Typography>
-      )}
+    const inputType = type === "password" && showPassword ? "text" : type;
 
-      <InputWrapper>
-        {startIcon && <IconWrapper position="start">{startIcon}</IconWrapper>}
-        <StyledInput
-          id={inputId}
-          hasError={!!error}
-          hasStartIcon={!!startIcon}
-          hasEndIcon={!!endIcon || type === "password"}
-          type={inputType}
-          {...props}
-        />
-
-        {type === "password" && (
-          <StyledPasswordToggleButton
-            type="button"
-            aria-label={showPassword ? "Hide password" : "Show password"}
-            onClick={togglePasswordVisibility}
-          >
-            {showPassword ? <FaEye /> : <FaEyeSlash />}
-          </StyledPasswordToggleButton>
+    return (
+      <StyledDivWrapper>
+        {label && (
+          <Typography variant="label">
+            <label htmlFor={inputId}>
+              {label} {required && <span aria-label="required">*</span>}
+            </label>
+          </Typography>
         )}
 
-        {endIcon && <IconWrapper position="end">{endIcon}</IconWrapper>}
-      </InputWrapper>
+        <InputWrapper>
+          {startAdornment && (
+            <AdornmentWrapper position="start">
+              {startAdornment}
+            </AdornmentWrapper>
+          )}
+          <StyledInput
+            id={inputId}
+            ref={ref}
+            hasError={!!error}
+            hasStartIcon={!!startAdornment}
+            hasEndIcon={!!endAdornment || type === "password"}
+            type={inputType}
+            {...props}
+          />
+          {type === "password" && (
+            <StyledPasswordToggleButton
+              type="button"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </StyledPasswordToggleButton>
+          )}
+          {endAdornment && (
+            <AdornmentWrapper position="end">{endAdornment}</AdornmentWrapper>
+          )}
+        </InputWrapper>
 
-      {error ? (
-        <Typography variant="caption" color="danger">
-          {error}
-        </Typography>
-      ) : helperText ? (
-        <Typography variant="caption">{helperText}</Typography>
-      ) : null}
-    </StyledDivWrapper>
-  );
-};
+        {error ? (
+          <Typography variant="caption" color="danger">
+            {error}
+          </Typography>
+        ) : helperText ? (
+          <Typography variant="caption">{helperText}</Typography>
+        ) : null}
+      </StyledDivWrapper>
+    );
+  },
+);

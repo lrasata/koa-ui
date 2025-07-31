@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { TextField } from "./TextField";
-import { theme } from "../../theme/theme.ts";
+import { theme } from "../../../theme/theme.ts";
 import { ThemeProvider } from "@emotion/react";
-import { fireEvent } from "../../tests/utils/test-utils.tsx";
+import { fireEvent } from "@testing-library/dom";
 
 describe("TextField", () => {
   it("renders the label and required asterisk", () => {
@@ -24,8 +24,8 @@ describe("TextField", () => {
       <ThemeProvider theme={theme}>
         <TextField
           label="Email"
-          startIcon={<span data-testid="start-icon">S</span>}
-          endIcon={<span data-testid="end-icon">E</span>}
+          startAdornment={<span data-testid="start-icon">S</span>}
+          endAdornment={<span data-testid="end-icon">E</span>}
         />
       </ThemeProvider>,
     );

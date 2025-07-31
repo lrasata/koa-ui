@@ -27,10 +27,10 @@ const meta: Meta<typeof TextField> = {
     error: {
       control: { type: "text" },
     },
-    startIcon: {
+    startAdornment: {
       control: false,
     },
-    endIcon: {
+    endAdornment: {
       control: false,
     },
   },
@@ -65,18 +65,18 @@ export const AllTextFieldVariant: Story = {
       <TextField
         label="Text Field with start icon"
         {...args}
-        startIcon={<FaSearch />}
+        startAdornment={<FaSearch />}
       />
       <TextField
         label="Text Field with end icon"
         {...args}
-        endIcon={<FaSync />}
+        endAdornment={<FaSync />}
       />
       <TextField
         label="Text Field with start and end icons"
         {...args}
-        startIcon={<FaSearch />}
-        endIcon={<FaSync />}
+        startAdornment={<FaSearch />}
+        endAdornment={<FaSync />}
       />
       <TextField label="Password" type="password" {...args} />
     </div>

@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Card } from "./Card";
 import { ThemeProvider } from "@emotion/react";
-import { theme } from "../../theme/theme";
+import { theme } from "../../../theme/theme";
 import type { ReactElement } from "react";
 
 const renderWithTheme = (ui: ReactElement) =>

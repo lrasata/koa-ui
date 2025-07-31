@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import { Typography } from "./Typography";
 import { ThemeProvider } from "@emotion/react";
-import { theme } from "../../theme/theme";
+import { theme } from "../../../theme/theme.ts";
 
 describe("Typography component", () => {
   it("renders children correctly", () => {

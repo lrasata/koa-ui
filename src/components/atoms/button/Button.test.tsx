@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { Button } from "./Button";
 import { FiCoffee } from "react-icons/fi";
-import { render, fireEvent, screen } from "../../tests/utils/test-utils.tsx";
+import { render, fireEvent, screen } from "../../../tests/utils/test-utils.tsx";
 
 describe("<Button />", () => {
   it("renders with text", () => {
