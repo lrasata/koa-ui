@@ -23,10 +23,10 @@ It includes core components such as buttons, inputs, cards, modals, layout helpe
 
 ## Purpose
 
-_The Story Behind Trip Planner_
+_The Story Behind Koa UI_
 
 After working on a few personal projects, I started to notice a pattern: I was building the same UI components over and over again.
-**Buttons, inputs, cards, modals**, they always looked a bit different, but the structure was basically the same. So why not
+**buttons, inputs, cards, modals**, they always looked a bit different, but the structure was basically the same. So why not
 just build my own library once, and reuse it everywhere?
 
 That’s how Koa UI started, a collection of reusable React components styled with Emotion CSS. It’s simple, clean, and made
