@@ -29,12 +29,15 @@ interface SearchBarProps {
   debounceTime?: number;
 }
 
-const StyledSearchButton = styled.button(({ theme }) => ({
+const EndAdornmentContainer = styled.button(({ theme }) => ({
   cursor: "pointer",
   color: theme.colors.text.secondary,
   border: "none",
   padding: theme.spacing.sm,
   background: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 
   "&:hover": {
     background: theme.colors.background.hover,
@@ -42,7 +45,7 @@ const StyledSearchButton = styled.button(({ theme }) => ({
   },
   "&:focus": {
     background: theme.colors.background.hover,
-    outline: `2px solid ${theme.colors.stroke.focus}`,
+    outline: `3px solid ${theme.colors.stroke.focus}`,
     borderRadius: "50%",
     border: "none",
   },
@@ -100,19 +103,19 @@ export const SearchBar = ({
         endAdornment={
           <>
             {clearable && inputValue && (
-              <StyledSearchButton
+              <EndAdornmentContainer
                 aria-label={ariaLabelClearButton}
                 onClick={handleClearInput}
               >
                 <FaTimes />
-              </StyledSearchButton>
+              </EndAdornmentContainer>
             )}
-            <StyledSearchButton
+            <EndAdornmentContainer
               aria-label={ariaLabelSearchButton}
               onClick={() => handleSearch(inputValue)}
             >
               <FaSearch />
-            </StyledSearchButton>
+            </EndAdornmentContainer>
           </>
         }
       />

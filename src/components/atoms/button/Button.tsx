@@ -57,7 +57,7 @@ const StyledButton = styled.button<ButtonProps>(
       outline: "none",
 
       "&:focus-visible": {
-        boxShadow: `0 0 0 ${theme.spacing.xxs}  ${theme.colors.stroke.focus}`,
+        boxShadow: `0 0 0 3px ${theme.colors.stroke.focus}`,
       },
 
       "&:disabled": {
@@ -104,20 +104,20 @@ const StyledButton = styled.button<ButtonProps>(
         backgroundColor: theme.colors.danger.main,
         color: theme.colors.danger.contrastText ?? theme.colors.text.inverted,
         "&:not(:disabled):hover": {
-          backgroundColor: theme.colors.danger.light,
+          backgroundColor: theme.colors.danger.dark,
         },
         "&:not(:disabled):active": {
-          backgroundColor: theme.colors.danger.dark,
+          backgroundColor: theme.colors.danger.light,
         },
       },
       success: {
         backgroundColor: theme.colors.success.main,
         color: theme.colors.success.contrastText ?? theme.colors.text.inverted,
         "&:not(:disabled):hover": {
-          backgroundColor: theme.colors.success.light,
+          backgroundColor: theme.colors.success.dark,
         },
         "&:not(:disabled):active": {
-          backgroundColor: theme.colors.success.dark,
+          backgroundColor: theme.colors.success.light,
         },
       },
     };

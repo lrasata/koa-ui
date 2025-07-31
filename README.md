@@ -57,7 +57,9 @@ it’s a fun side project that keeps growing as I build more things.
 - **React** – component-based structure
 - **TypeScript** – type safety
 - **Emotion** – scoped, theme-aware styling
+- **React testing library**
 - **Storybook**
+- **Chromatic**
 
 ---
 

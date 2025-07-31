@@ -4,6 +4,7 @@ export const colors = {
     surface: "#f9fafb", // ex: for Card background color
     hover: "#e5e7eb",
     press: "#e0e0e0",
+    backdrop: "rgba(0, 0, 0, 0.4)",
   },
   text: {
     default: "#374151",
@@ -18,6 +19,7 @@ export const colors = {
     contrastText: "#ffffff", // white text on primary button
   },
   stroke: {
+    default: "#D4D4D8",
     focus: "#00A6F4",
   },
   danger: {

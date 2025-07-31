@@ -5,7 +5,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRedoAlt } from "react-icons/fa";
 
 const meta: Meta<typeof Button> = {
-  title: "Components/Button",
+  title: "Inputs/Button",
   component: Button,
   tags: ["autodocs"], // <-- this enables automatic docs page
 
@@ -44,7 +44,7 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const DefaultButton: Story = {
+export const Basic: Story = {
   args: {
     children: "Click Me",
     onClick: () => alert("Button clicked!"),
@@ -56,7 +56,7 @@ export const DefaultButton: Story = {
   ),
 };
 
-export const AllButtonVariant: Story = {
+export const Examples: Story = {
   args: {
     onClick: () => alert("Button clicked!"),
   },

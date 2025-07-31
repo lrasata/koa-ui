@@ -105,7 +105,7 @@ const StyledInput = styled.input<{
   transition: "border 0.5s",
 
   "&:focus": {
-    outline: `2px solid ${hasError ? theme.colors.danger.main : theme.colors.stroke.focus}`,
+    outline: `3px solid ${hasError ? theme.colors.danger.main : theme.colors.stroke.focus}`,
     border: "none",
   },
 }));

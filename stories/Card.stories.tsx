@@ -3,7 +3,7 @@ import { Card } from "../src";
 import { Typography as KoaTypography } from "../src";
 
 const meta: Meta<typeof Card> = {
-  title: "Components/Card",
+  title: "Layout/Card",
   component: Card,
   tags: ["autodocs"], // <-- this enables automatic docs page
 

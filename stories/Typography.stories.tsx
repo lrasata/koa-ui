@@ -53,7 +53,7 @@ export default meta;
 
 type Story = StoryObj<typeof KoaTypography>;
 
-export const Typography: Story = {
+export const Basic: Story = {
   args: {
     children:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla felis est, sollicitudin vitae nisi gravida, facilisis dictum augue. " +

@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaSync } from "react-icons/fa";
 
 const meta: Meta<typeof TextField> = {
-  title: "Components/TextField",
+  title: "Inputs/TextField",
   component: TextField,
   tags: ["autodocs"],
 
@@ -40,7 +40,7 @@ export default meta;
 
 type Story = StoryObj<typeof TextField>;
 
-export const DefaultTextField: Story = {
+export const Basic: Story = {
   args: {
     label: "Email",
     helperText: "Please enter your email address",
@@ -52,7 +52,7 @@ export const DefaultTextField: Story = {
   ),
 };
 
-export const AllTextFieldVariant: Story = {
+export const Examples: Story = {
   render: (args) => (
     <div
       style={{

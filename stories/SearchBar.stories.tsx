@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SearchBar } from "../src";
 
 const meta: Meta<typeof SearchBar> = {
-  title: "Components/SearchBar",
+  title: "Inputs/SearchBar",
   component: SearchBar,
   tags: ["autodocs"],
 
@@ -38,7 +38,7 @@ export default meta;
 
 type Story = StoryObj<typeof SearchBar>;
 
-export const DefaultSearchBar: Story = {
+export const Basic: Story = {
   args: {
     searchedText: "John doe",
     placeholder: "start to type to search",
