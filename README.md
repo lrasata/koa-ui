@@ -57,9 +57,9 @@ it’s a fun side project that keeps growing as I build more things.
 - **React** – component-based structure
 - **TypeScript** – type safety
 - **Emotion** – scoped, theme-aware styling
-- **React testing library**
-- **Storybook**
-- **Chromatic**
+- **React testing library** - unit testing
+- **Storybook** - frontend workshop environment tool
+- **Chromatic** - powerful testing platform that scans every possible UI state across browsers to catch bugs in appearance, functionality, and accessibility
 
 ---
 
