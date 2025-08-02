@@ -5,5 +5,6 @@ export * from "./components/atoms/card/Card";
 export * from "./components/atoms/textField/TextField";
 export * from "./components/atoms/typography/Typography";
 export * from "./components/molecules/search-bar/SearchBar";
+export * from "./components/molecules/media-card/MediaCard";
 export * from "./components/organisms/Dialog/Dialog";
 export * from "./components/organisms/Dialog/DialogHeader";

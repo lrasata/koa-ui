@@ -150,18 +150,6 @@ You can override:
 
 ---
 
-## Components
-
-| Component    | Description                             |
-| ------------ | --------------------------------------- |
-| `Typography` | Improves readability, defines hierarchy |
-| `Button`     | Calls to action                         |
-| `TextField`  | Lets user enter or edit a text          |
-| `SearchBar`  | Lets user search through content        |
-| ...          | More in progress                        |
-
----
-
 ## License
 
 MIT License © 2025 lrasata

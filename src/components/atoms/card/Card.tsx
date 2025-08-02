@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import type { ElementType, ReactNode } from "react";
+import React, { type ElementType, type ReactNode } from "react";
 import styled from "@emotion/styled";
 
 /**
  * Props for the `Card` component.
  */
-interface CardProps {
+export interface CardProps {
   /**
    * The content of the card.
    */
@@ -42,14 +42,22 @@ const StyledDiv = styled("div")<CardProps>(
     padding: padding || theme.spacing?.lg || "1.5rem",
     backgroundColor: theme.colors.background.surface,
     transition: "all 0.2s ease-in-out",
+    overflow: "visible", // make sure overflow doesn't clip
+    position: "relative", // for absolutely positioned image if needed
     ...(hoverLess
       ? {}
       : {
           "&:hover": {
             cursor: onClick ? "pointer" : "default",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.08)",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
           },
         }),
+    // Remove default outline and use custom focus border
+    outline: "none",
+    "&:focus-visible": {
+      border: `2px solid ${theme.colors.stroke.focus}`,
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
+    },
   }),
 );
 
@@ -67,12 +75,21 @@ export const Card = ({
   hoverLess = false,
   onClick,
 }: CardProps) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if ((e.key === "Enter" || e.key === " ") && onClick) {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <StyledDiv
       as={as}
       hoverLess={hoverLess}
       padding={padding}
       onClick={onClick}
+      onKeyDown={handleKeyDown}
+      {...(onClick && { tabIndex: 0, role: "button" })}
     >
       {children}
     </StyledDiv>

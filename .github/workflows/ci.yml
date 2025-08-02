@@ -1,4 +1,4 @@
-name: Koa-UI-CI-CD
+name: CI-CD
 
 on:
   push:

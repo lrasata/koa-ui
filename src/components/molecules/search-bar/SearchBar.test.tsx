@@ -1,8 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { screen, fireEvent, waitFor } from "@testing-library/react";
 import { SearchBar } from "./SearchBar.tsx";
-import { theme } from "../../../theme/theme.ts";
-import { ThemeProvider } from "@emotion/react";
+import { render } from "../../../tests/utils/test-utils";
 
 describe("SearchBar", () => {
   let handleSearch: ReturnType<typeof vi.fn>;
@@ -13,13 +12,11 @@ describe("SearchBar", () => {
 
   it("renders with placeholder and default input", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <SearchBar
-          searchedText=""
-          placeholder="Search here..."
-          handleSearch={handleSearch}
-        />
-      </ThemeProvider>,
+      <SearchBar
+        searchedText=""
+        placeholder="Search here..."
+        handleSearch={handleSearch}
+      />,
     );
 
     const input = screen.getByPlaceholderText("Search here...");
@@ -28,14 +25,12 @@ describe("SearchBar", () => {
 
   it("calls handleSearch after debounce time", async () => {
     render(
-      <ThemeProvider theme={theme}>
-        <SearchBar
-          searchedText=""
-          placeholder="Search..."
-          handleSearch={handleSearch}
-          debounceTime={300}
-        />
-      </ThemeProvider>,
+      <SearchBar
+        searchedText=""
+        placeholder="Search..."
+        handleSearch={handleSearch}
+        debounceTime={300}
+      />,
     );
 
     const input = screen.getByPlaceholderText("Search...");
@@ -52,13 +47,11 @@ describe("SearchBar", () => {
 
   it("calls handleSearch when search button is clicked", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <SearchBar
-          searchedText=""
-          placeholder="Search..."
-          handleSearch={handleSearch}
-        />
-      </ThemeProvider>,
+      <SearchBar
+        searchedText=""
+        placeholder="Search..."
+        handleSearch={handleSearch}
+      />,
     );
 
     const input = screen.getByPlaceholderText("Search...");
@@ -72,13 +65,11 @@ describe("SearchBar", () => {
 
   it("calls handleSearch when Enter key is pressed", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <SearchBar
-          searchedText=""
-          placeholder="Search..."
-          handleSearch={handleSearch}
-        />
-      </ThemeProvider>,
+      <SearchBar
+        searchedText=""
+        placeholder="Search..."
+        handleSearch={handleSearch}
+      />,
     );
 
     const input = screen.getByPlaceholderText("Search...");
@@ -90,13 +81,11 @@ describe("SearchBar", () => {
 
   it("clears input when clear button is clicked", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <SearchBar
-          searchedText=""
-          placeholder="Search..."
-          handleSearch={handleSearch}
-        />
-      </ThemeProvider>,
+      <SearchBar
+        searchedText=""
+        placeholder="Search..."
+        handleSearch={handleSearch}
+      />,
     );
 
     const input = screen.getByPlaceholderText("Search...");
@@ -111,13 +100,11 @@ describe("SearchBar", () => {
 
   it("shows initial searchedText when provided", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <SearchBar
-          searchedText="initial"
-          placeholder="Search..."
-          handleSearch={handleSearch}
-        />
-      </ThemeProvider>,
+      <SearchBar
+        searchedText="initial"
+        placeholder="Search..."
+        handleSearch={handleSearch}
+      />,
     );
 
     const input = screen.getByPlaceholderText("Search...");

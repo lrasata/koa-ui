@@ -26,9 +26,6 @@ const meta: Meta<typeof Card> = {
     onClick: {
       control: false,
     },
-    as: {
-      control: false,
-    },
   },
 };
 
@@ -36,7 +33,7 @@ export default meta;
 
 type Story = StoryObj<typeof Card>;
 
-export const DefaultCard: Story = {
+export const Basic: Story = {
   args: {
     padding: "24px",
     children:
@@ -49,7 +46,6 @@ export const DefaultCard: Story = {
         padding={args.padding}
         onClick={() => {}}
         hoverLess={args.hoverLess}
-        as="section"
       >
         <KoaTypography variant="body">{args.children}</KoaTypography>
       </Card>

@@ -1,8 +1,7 @@
 import { describe, it, vi, expect } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import { Dialog, type DialogProps } from "./Dialog";
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "../../../theme/theme.ts";
+import { render } from "../../../tests/utils/test-utils";
 
 const renderDialog = (props?: Partial<DialogProps>) => {
   const defaultProps: DialogProps = {
@@ -13,11 +12,9 @@ const renderDialog = (props?: Partial<DialogProps>) => {
     children: <div>Dialog Content</div>,
   };
   return render(
-    <ThemeProvider theme={theme}>
-      <Dialog {...defaultProps} {...props}>
-        {defaultProps.children}
-      </Dialog>
-    </ThemeProvider>,
+    <Dialog {...defaultProps} {...props}>
+      {defaultProps.children}
+    </Dialog>,
   );
 };
 

@@ -1,17 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { TextField } from "./TextField";
-import { theme } from "../../../theme/theme.ts";
-import { ThemeProvider } from "@emotion/react";
 import { fireEvent } from "@testing-library/dom";
+import { render } from "../../../tests/utils/test-utils";
 
 describe("TextField", () => {
   it("renders the label and required asterisk", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField label="Username" required />
-      </ThemeProvider>,
-    );
+    render(<TextField label="Username" required />);
     const label = screen.getByText(/Username/i);
     expect(label).toBeInTheDocument();
 
@@ -21,13 +16,11 @@ describe("TextField", () => {
 
   it("renders startIcon and endIcon inside input wrapper", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <TextField
-          label="Email"
-          startAdornment={<span data-testid="start-icon">S</span>}
-          endAdornment={<span data-testid="end-icon">E</span>}
-        />
-      </ThemeProvider>,
+      <TextField
+        label="Email"
+        startAdornment={<span data-testid="start-icon">S</span>}
+        endAdornment={<span data-testid="end-icon">E</span>}
+      />,
     );
     expect(screen.getByTestId("start-icon")).toBeInTheDocument();
     expect(screen.getByTestId("end-icon")).toBeInTheDocument();
@@ -35,11 +28,7 @@ describe("TextField", () => {
 
   it("renders error message and applies error styles", () => {
     const errorMessage = "This field is required";
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField label="Password" error={errorMessage} />
-      </ThemeProvider>,
-    );
+    render(<TextField label="Password" error={errorMessage} />);
 
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
     // The input should have border color related to error - testable via class or style
@@ -49,40 +38,24 @@ describe("TextField", () => {
 
   it("renders helperText when no error", () => {
     const helperText = "Enter your full name";
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField label="Name" helperText={helperText} />
-      </ThemeProvider>,
-    );
+    render(<TextField label="Name" helperText={helperText} />);
     expect(screen.getByText(helperText)).toBeInTheDocument();
   });
 
   it("associates input and label via id", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField label="Email" id="email-input" />
-      </ThemeProvider>,
-    );
+    render(<TextField label="Email" id="email-input" />);
     const input = screen.getByLabelText("Email");
     expect(input).toHaveAttribute("id", "email-input");
   });
 
   it("associates correct type to input element", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField label="Age" type="number" />
-      </ThemeProvider>,
-    );
+    render(<TextField label="Age" type="number" />);
     const input = screen.getByLabelText("Age");
     expect(input).toHaveAttribute("type", "number");
   });
 
   it("shows the toggle password visibility button when input type is password", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField label="Password" type="password" />
-      </ThemeProvider>,
-    );
+    render(<TextField label="Password" type="password" />);
     const input = screen.getByLabelText("Password");
     expect(input).toHaveAttribute("type", "password");
 
@@ -97,11 +70,7 @@ describe("TextField", () => {
   });
 
   it("input focus triggers outline style", async () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField label="FocusTest" />
-      </ThemeProvider>,
-    );
+    render(<TextField label="FocusTest" />);
     const input = screen.getByLabelText("FocusTest");
 
     input.focus();
@@ -110,11 +79,7 @@ describe("TextField", () => {
   });
 
   it("generates a random id if none is provided", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField label="RandomId" />
-      </ThemeProvider>,
-    );
+    render(<TextField label="RandomId" />);
     const input = screen.getByLabelText("RandomId");
     expect(input.id).toMatch(/^input-/);
   });
