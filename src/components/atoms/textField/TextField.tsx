@@ -9,6 +9,7 @@ import {
 import { Typography } from "../typography/Typography.tsx";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { IconButton } from "../icon-button/IconButton.tsx";
 
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Label : Text to display above the input field */
@@ -58,29 +59,9 @@ const AdornmentWrapper = styled.div<{ position: "start" | "end" }>(
   }),
 );
 
-const StyledPasswordToggleButton = styled.button(({ theme }) => ({
+const StyledPasswordToggleButton = styled.div(({ theme }) => ({
   position: "absolute",
   right: theme.spacing.base,
-  color: theme.colors.text.secondary,
-  padding: theme.spacing.sm,
-  border: "none",
-  background: "none",
-  cursor: "pointer",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-
-  "&:hover": {
-    background: theme.colors.background.hover,
-    borderRadius: "50%",
-  },
-
-  "&:focus": {
-    background: theme.colors.background.hover,
-    outline: `2px solid ${theme.colors.stroke.focus}`,
-    borderRadius: "50%",
-    border: "none",
-  },
 }));
 
 const StyledInput = styled.input<{
@@ -161,12 +142,20 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             {...props}
           />
           {type === "password" && (
-            <StyledPasswordToggleButton
-              type="button"
-              aria-label={showPassword ? "Hide password" : "Show password"}
-              onClick={togglePasswordVisibility}
-            >
-              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            <StyledPasswordToggleButton>
+              {showPassword ? (
+                <IconButton
+                  ariaLabel={"Hide password"}
+                  onClick={togglePasswordVisibility}
+                  icon={<FaEye />}
+                />
+              ) : (
+                <IconButton
+                  ariaLabel={"Show password"}
+                  onClick={togglePasswordVisibility}
+                  icon={<FaEyeSlash />}
+                />
+              )}
             </StyledPasswordToggleButton>
           )}
           {endAdornment && (

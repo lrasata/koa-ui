@@ -6,9 +6,9 @@ import {
   type ChangeEvent,
   type KeyboardEvent,
 } from "react";
-import styled from "@emotion/styled";
 import { FaSearch, FaTimes } from "react-icons/fa";
 import { TextField } from "../../atoms/textField/TextField.tsx";
+import { IconButton } from "../../atoms/icon-button/IconButton.tsx";
 
 interface SearchBarProps {
   /** Search bar id */
@@ -28,28 +28,6 @@ interface SearchBarProps {
   /** In milliseconds, time after which the search is performed after the user stopped typing */
   debounceTime?: number;
 }
-
-const EndAdornmentContainer = styled.button(({ theme }) => ({
-  cursor: "pointer",
-  color: theme.colors.text.secondary,
-  border: "none",
-  padding: theme.spacing.sm,
-  background: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-
-  "&:hover": {
-    background: theme.colors.background.hover,
-    borderRadius: "50%",
-  },
-  "&:focus": {
-    background: theme.colors.background.hover,
-    outline: `3px solid ${theme.colors.stroke.focus}`,
-    borderRadius: "50%",
-    border: "none",
-  },
-}));
 
 /**
  * SearchBar lets users search through content. Debounces input for performance.
@@ -103,19 +81,17 @@ export const SearchBar = ({
         endAdornment={
           <>
             {clearable && inputValue && (
-              <EndAdornmentContainer
-                aria-label={ariaLabelClearButton}
+              <IconButton
+                ariaLabel={ariaLabelClearButton}
                 onClick={handleClearInput}
-              >
-                <FaTimes />
-              </EndAdornmentContainer>
+                icon={<FaTimes />}
+              />
             )}
-            <EndAdornmentContainer
-              aria-label={ariaLabelSearchButton}
+            <IconButton
+              ariaLabel={ariaLabelSearchButton}
               onClick={() => handleSearch(inputValue)}
-            >
-              <FaSearch />
-            </EndAdornmentContainer>
+              icon={<FaSearch />}
+            />
           </>
         }
       />
