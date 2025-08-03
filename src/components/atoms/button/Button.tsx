@@ -35,6 +35,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const StyledButton = styled.button<ButtonProps>(
   ({ theme, variant = "primary", fullWidth }) => {
+    if (!theme) {
+      console.warn("No theme received in StyledButton");
+      return {};
+    }
+
     const base = {
       ...theme.typography.button,
 
