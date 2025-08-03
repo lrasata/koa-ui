@@ -4,7 +4,7 @@
     "outDir": "dist",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "noEmit": false,
     "skipLibCheck": true,
     "declarationDir": "dist/types",
