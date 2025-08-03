@@ -10,7 +10,7 @@ import { FaSearch, FaTimes } from "react-icons/fa";
 import { TextField } from "../../atoms/textField/TextField.tsx";
 import { IconButton } from "../../atoms/icon-button/IconButton.tsx";
 
-interface SearchBarProps {
+export interface SearchBarProps {
   /** Search bar id */
   id?: string;
   /** Text to search */

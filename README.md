@@ -1,8 +1,7 @@
-# Koa UI — React Design System 🚧
+# Koa UI — React Design System 
 
 [![CI](https://github.com/lrasata/koa-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/lrasata/koa-ui/actions/workflows/ci.yml)
 
-> **Status**: 🚧 Under Construction
 
 <div style="text-align: center;">
 <img src="https://raw.githubusercontent.com/lrasata/koa-ui/refs/heads/main/docs/koa.png" alt="koa ui logo" width="200" />
@@ -13,14 +12,57 @@ It includes core components such as buttons, inputs, cards, modals, layout helpe
 
 ## Table of content
 
+- [Usage](#usage)
 - [Purpose](#purpose)
 - [Features](#features)
 - [Tech stack](#tech-stack)
 - [Installation](#installation)
 - [Running storybook](#running-storybook)
-- [Theming](#theming)
 - [Components](#components)
 
+
+---
+
+## Usage
+
+```ts
+// customTheme.ts
+import { createTheme } from "koa-ui-design-system";
+
+const customTheme = createTheme({
+    colors: {
+        primary: {
+            main: "#4AA397",
+            light: "#D2EAE4",
+            dark: "#2E6E61",
+            contrastText: "#ffffff",
+        },
+...
+    },
+    fonts,
+    typography,
+});
+
+// app.ts
+import { ThemeProvider } from "@emotion/react";
+import { customTheme } from "./theme/customTheme";
+
+<ThemeProvider theme={customTheme}>
+  <App />
+</ThemeProvider>
+```
+
+You can override:
+
+- `colors`
+- `fonts`
+- `typography`
+- `radii`
+- `spacing`
+- `breakpoints`
+- `zIndex`
+
+--- 
 ## Purpose
 
 _The Story Behind Koa UI_
@@ -29,7 +71,7 @@ After working on a few personal projects, I started to notice a pattern: I was b
 **buttons, inputs, cards, modals**, they always looked a bit different, but the structure was basically the same. So why not
 just build my own library once, and reuse it everywhere?
 
-That’s how Koa UI started, a collection of reusable React components styled with Emotion CSS. It’s simple, clean, and made
+That’s how Koa UI started, a collection of reusable React components styled with Emotion. It’s simple, clean, and made
 to fit the way I like to work. The goal is not to compete with big UI frameworks. Instead, it is to create a set of tools
 that reflect how I build fast, modular, and highly themeable components.
 
@@ -60,93 +102,6 @@ it’s a fun side project that keeps growing as I build more things.
 - **React testing library** - unit testing
 - **Storybook** - frontend workshop environment tool
 - **Chromatic** - powerful testing platform that scans every possible UI state across browsers to catch bugs in appearance, functionality, and accessibility
-
----
-
-## Installation
-
-If you're working locally:
-
-```bash
-git clone https://github.com/lrasata/koa-ui.git
-cd koa-ui
-npm install
-```
-
----
-
-## Running Storybook
-
-Start the development server:
-
-```bash
-npm run storybook
-```
-
-This opens Storybook in your browser to explore and test components interactively.
-
----
-
-## Testing
-
-Run unit tests:
-
-```bash
-npm run test
-```
-
-Run unit tests with coverage result:
-
-```bash
-npm run test:coverage
-```
-
-Run accessibility testing:
-
-```bash
-npm run test-storybook
-```
-
----
-
-## Theming
-
-All components use Emotion's ThemeProvider for styling.
-
-```ts
-// customTheme.ts
-import { createTheme } from "./createTheme";
-
-const customTheme = createTheme({
-    colors: {
-        primary: {
-            main: "#1d4ed8",
-            light: "#2563eb",
-            dark: "#1e40af",
-            contrastText: "#fff",
-        },
-    },
-    fonts: {
-        fontFamily: "'Inter', sans-serif",
-    },
-});
-
-// app.ts
-import { ThemeProvider } from "@emotion/react";
-import { customTheme } from "./theme/customTheme";
-
-<ThemeProvider theme={customTheme}>
-  <App />
-</ThemeProvider>
-```
-
-You can override:
-
-- `colors`
-- `fonts`
-- `typography`
-- `radii`
-- `spacing`
 
 ---
 
