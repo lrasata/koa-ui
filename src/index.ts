@@ -1,4 +1,3 @@
-export * from "./theme/theme";
 export * from "./components/atoms/button/Button";
 export * from "./components/atoms/icon-button/IconButton";
 export * from "./components/atoms/card/Card";
@@ -9,4 +8,4 @@ export * from "./components/molecules/media-card/MediaCard";
 export * from "./components/organisms/Dialog/Dialog";
 export * from "./components/organisms/Dialog/DialogHeader";
 export * from "./theme/theme";
-
+export { defaultTheme } from './theme/defaultTheme';
