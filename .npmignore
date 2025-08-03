@@ -1,0 +1,9 @@
+src/
+.storybook/
+*.test.*
+*.stories.*
+tsconfig*.json
+vitest.*
+playwright.*
+*.md
+node_modules/

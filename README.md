@@ -29,7 +29,7 @@ After working on a few personal projects, I started to notice a pattern: I was b
 **buttons, inputs, cards, modals**, they always looked a bit different, but the structure was basically the same. So why not
 just build my own library once, and reuse it everywhere?
 
-That’s how Koa UI started, a collection of reusable React components styled with Emotion CSS. It’s simple, clean, and made
+That’s how Koa UI started, a collection of reusable React components styled with Emotion. It’s simple, clean, and made
 to fit the way I like to work. The goal is not to compete with big UI frameworks. Instead, it is to create a set of tools
 that reflect how I build fast, modular, and highly themeable components.
 
