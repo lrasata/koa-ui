@@ -1,6 +1,6 @@
 {
   "name": "koa-ui-design-system",
-  "version": "1.0.0-rc.12",
+  "version": "1.0.0",
   "private": false,
   "publishConfig": {
     "access": "public"
