@@ -5,7 +5,7 @@ import { Typography } from "../../atoms/typography/Typography.tsx";
 import styled from "@emotion/styled";
 import { theme } from "../../../theme/theme.ts";
 
-interface MediaCardProps {
+export interface MediaCardProps {
   imgSrc: string;
   height?: number;
   imgAlt: string;
@@ -61,7 +61,7 @@ export const MediaCard = ({
         <TitleWrapper>
           <Typography variant="h2">{title}</Typography>
         </TitleWrapper>
-        {body && <Typography variant="body">{body}</Typography>}
+        {body && <Typography variant="body1">{body}</Typography>}
         {actions && <ActionWrapper>{actions}</ActionWrapper>}
       </CardContentWrapper>
     </Card>

@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import type { ButtonHTMLAttributes, ReactElement } from "react";
 
-interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IconButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Aria label of icon button*/
   ariaLabel: string;
   /** Click function handler of the button */

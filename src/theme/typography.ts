@@ -31,7 +31,7 @@ export const typography = {
     fontWeight: fonts.fontWeights.medium,
     lineHeight: 1.5,
   },
-  body: {
+  body1: {
     fontFamily: fonts.fontFamily,
     fontSize: fonts.fontSizes.base,
     fontWeight: fonts.fontWeights.regular,
