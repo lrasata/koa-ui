@@ -14,7 +14,7 @@ const meta: Meta<typeof KoaTypography> = {
       table: {
         type: {
           summary:
-            '"h1" | "h2" | "h3" | "h4" | "subtitle" | "body" | "button" | "label" | "caption"',
+            '"h1" | "h2" | "h3" | "h4" | "subtitle" | "body1" | "button" | "label" | "caption"',
         },
       },
     },
@@ -80,7 +80,7 @@ export const AllTypographies: Story = {
       <KoaTypography variant="subtitle">
         Subtitle. Lorem ipsum dolor sit amet
       </KoaTypography>
-      <KoaTypography variant="body">
+      <KoaTypography variant="body1">
         Body. Lorem ipsum dolor sit amet
       </KoaTypography>
       <KoaTypography variant="button">
@@ -93,31 +93,31 @@ export const AllTypographies: Story = {
         caption. Lorem ipsum dolor sit amet
       </KoaTypography>
       <br />
-      <KoaTypography variant="body" color="default">
+      <KoaTypography variant="body1" color="default">
         Text body with default color
       </KoaTypography>
       <div style={{ backgroundColor: theme.colors.text.default }}>
-        <KoaTypography variant="body" color="inverted">
+        <KoaTypography variant="body1" color="inverted">
           Text body with inverted color
         </KoaTypography>
       </div>
-      <KoaTypography variant="body" color="primary">
+      <KoaTypography variant="body1" color="primary">
         Text body with primary color
       </KoaTypography>
-      <KoaTypography variant="body" color="danger">
+      <KoaTypography variant="body1" color="danger">
         Text body with danger color
       </KoaTypography>
-      <KoaTypography variant="body" color="success">
+      <KoaTypography variant="body1" color="success">
         Text body with success color
       </KoaTypography>
       <br />
-      <KoaTypography variant="body" weight="regular">
+      <KoaTypography variant="body1" weight="regular">
         Text body with regular font weight
       </KoaTypography>
-      <KoaTypography variant="body" weight="medium">
+      <KoaTypography variant="body1" weight="medium">
         Text body with medium font weight
       </KoaTypography>
-      <KoaTypography variant="body" weight="semibold">
+      <KoaTypography variant="body1" weight="semibold">
         Text body with semi-bold font weight
       </KoaTypography>
     </div>

@@ -10,7 +10,7 @@ export const typographyVariants = [
   "h3",
   "h4",
   "subtitle",
-  "body",
+  "body1",
   "button",
   "label",
   "caption",
@@ -18,7 +18,7 @@ export const typographyVariants = [
 
 export type TypographyVariant = (typeof typographyVariants)[number];
 
-interface TypographyProps extends HTMLAttributes<HTMLElement> {
+export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   /** Variant which defines how the text looks */
   variant?: TypographyVariant;
   /** Color defines which color to use*/
@@ -34,7 +34,7 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
 }
 
 const StyledTypography = styled.span<TypographyProps>`
-  ${({ theme, variant = "body" }) => theme.typography[variant]};
+  ${({ theme, variant = "body1" }) => theme.typography[variant]};
   ${({ theme, color = "default" }) => {
     const textColor =
       theme.colors.text[color as keyof typeof theme.colors.text];
@@ -73,7 +73,7 @@ const StyledTypography = styled.span<TypographyProps>`
 
 /** Typography helps improve readability, establishes visual hierarchy and enhances user experience*/
 export const Typography = ({
-  variant = "body",
+  variant = "body1",
   color = "default",
   weight,
   component = "span",
