@@ -14,12 +14,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // externalize deps that shouldn't be bundled
-      external: [
-        '@emotion/react',
-        '@emotion/styled',
-        'react',
-        'react-dom',
-      ],
+      external: ["@emotion/react", "@emotion/styled", "react", "react-dom"],
       output: {
         globals: {
           react: "React",

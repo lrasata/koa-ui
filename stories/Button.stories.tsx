@@ -65,13 +65,19 @@ export const Examples: Story = {
       style={{
         display: "grid",
         gap: "16px",
-        gridTemplateColumns: "repeat(6, max-content)",
+        gridTemplateColumns: "repeat(8, max-content)",
       }}
     >
       <Button {...args} variant="primary">
         Primary
       </Button>
       <Button {...args} variant="primary" disabled>
+        Disabled
+      </Button>
+      <Button {...args} variant="secondary">
+        Secondary
+      </Button>
+      <Button {...args} variant="secondary" disabled>
         Disabled
       </Button>
       <Button variant="outline" {...args}>
@@ -93,6 +99,17 @@ export const Examples: Story = {
       <Button
         {...args}
         variant="primary"
+        startIcon={<FaCheckCircle />}
+        disabled
+      >
+        Disabled
+      </Button>
+      <Button {...args} variant="secondary" startIcon={<FaCheckCircle />}>
+        Secondary
+      </Button>
+      <Button
+        {...args}
+        variant="secondary"
         startIcon={<FaCheckCircle />}
         disabled
       >
@@ -120,6 +137,17 @@ export const Examples: Story = {
         Primary
       </Button>
       <Button {...args} variant="primary" endIcon={<FaCheckCircle />} disabled>
+        Disabled
+      </Button>
+      <Button {...args} variant="secondary" endIcon={<FaCheckCircle />}>
+        Secondary
+      </Button>
+      <Button
+        {...args}
+        variant="secondary"
+        endIcon={<FaCheckCircle />}
+        disabled
+      >
         Disabled
       </Button>
       <Button variant="outline" {...args} endIcon={<FaRegTrashAlt />}>

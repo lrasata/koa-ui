@@ -8,4 +8,5 @@ export * from "./components/molecules/media-card/MediaCard";
 export * from "./components/organisms/Dialog/Dialog";
 export * from "./components/organisms/Dialog/DialogHeader";
 export * from "./theme/theme";
-export { defaultTheme } from './theme/defaultTheme';
+export { defaultTheme } from "./theme/defaultTheme";
+export { createTheme } from "./utils/createTheme";

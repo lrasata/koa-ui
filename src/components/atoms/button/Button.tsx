@@ -8,15 +8,16 @@ import {
 
 export type ButtonVariant =
   | "primary"
+  | "secondary"
   | "outline"
   | "text"
   | "danger"
   | "success";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Variant which defines how the button looks.
-   * Options: "primary" | "outline" | "text" | "danger" | "success"
+   * Options: "primary" | "secondary" | "outline" | "text" | "danger" | "success"
    */
   variant?: ButtonVariant;
   /** Text content of the button */
@@ -78,10 +79,20 @@ const StyledButton = styled.button<ButtonProps>(
         backgroundColor: theme.colors.primary.main,
         color: theme.colors.primary.contrastText,
         "&:not(:disabled):hover": {
-          backgroundColor: theme.colors.primary.light,
+          backgroundColor: theme.colors.primary.dark,
         },
         "&:not(:disabled):active": {
-          backgroundColor: theme.colors.primary.dark,
+          backgroundColor: theme.colors.primary.light,
+        },
+      },
+      secondary: {
+        backgroundColor: theme.colors.secondary.main,
+        color: theme.colors.secondary.contrastText,
+        "&:not(:disabled):hover": {
+          backgroundColor: theme.colors.secondary.dark,
+        },
+        "&:not(:disabled):active": {
+          backgroundColor: theme.colors.secondary.light,
         },
       },
       outline: {

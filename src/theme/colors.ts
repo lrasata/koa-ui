@@ -14,24 +14,30 @@ export const colors = {
   border: "#e5e7eb",
   primary: {
     main: "#475569",
-    light: "#334155", // also used for button hover
+    light: "#64748B", // also used for button over
     dark: "#1e293b", // also used for button pressed
     contrastText: "#ffffff", // white text on primary button
+  },
+  secondary: {
+    main: "#4F46E5",
+    light: "#A5B4FC",
+    dark: "#4338CA",
+    contrastText: "#ffffff",
   },
   stroke: {
     default: "#D4D4D8",
     focus: "#00A6F4",
   },
   danger: {
-    light: "#fca5a5", // Light red (hover, background highlight)
+    light: "#fca5a5", // Light red (pressed, background highlight)
     main: "#b91c1c", // Main red (default)
-    dark: "#7f1d1d", // Dark red (pressed or border)
+    dark: "#7f1d1d", // Dark red (hover or border)
     contrastText: "#ffffff", // White text on red buttons
   },
   success: {
-    light: "#6ee7b7", // Light green (hover, background highlight)
+    light: "#6ee7b7", // Light green (pressed, background highlight)
     main: "#047857", // Main green (default)
-    dark: "#065f46", // Dark green (pressed or border)
+    dark: "#065f46", // Dark green (hover or border)
     contrastText: "#ffffff", // White text on green buttons
   },
 };

@@ -13,7 +13,7 @@
     "module": "ESNext",
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "include": ["src"],
   "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx"]
