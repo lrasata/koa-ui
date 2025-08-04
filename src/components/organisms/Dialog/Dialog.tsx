@@ -99,7 +99,6 @@ export const Dialog = ({
             ) : (
               <FocusTrap
                 focusTrapOptions={{
-                  onDeactivate: cancel.onClick,
                   escapeDeactivates: true,
                   clickOutsideDeactivates: true,
                 }}
