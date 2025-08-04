@@ -36,11 +36,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const StyledButton = styled.button<ButtonProps>(
   ({ theme, variant = "primary", fullWidth }) => {
-    if (!theme) {
-      console.warn("No theme received in StyledButton");
-      return {};
-    }
-
     const base = {
       ...theme.typography.button,
 
@@ -154,6 +149,7 @@ export const Button = ({
   onClick,
   startIcon,
   endIcon,
+  ...otherProps
 }: ButtonProps) => {
   return (
     <StyledButton
@@ -162,6 +158,7 @@ export const Button = ({
       aria-label={typeof children === "string" ? children : undefined} // For accessibility
       disabled={disabled}
       fullWidth={fullWidth}
+      {...otherProps}
     >
       {startIcon}
       {children}
