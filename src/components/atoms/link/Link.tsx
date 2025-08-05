@@ -3,7 +3,17 @@ import React from "react";
 
 export interface LinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  /**
+   * Href for the link
+   */
   href?: string;
+  /**
+   * Use target to specify whether it is an internal or external link to the application
+   */
+  target?: string;
+  /**
+   * Specifies if the link is disabled or not
+   */
   disabled?: boolean;
 }
 
@@ -39,10 +49,13 @@ const StyledLink = styled.a<LinkProps>(({ theme, disabled }) => ({
   },
 }));
 
+/**
+ * Reference in a document that users can click to navigate to another resource — such as a webpage, a section within the same page, a file, or an application.
+ */
 const Link = ({ href, disabled = false, children, ...props }: LinkProps) => (
   <StyledLink
     {...props}
-    href={disabled ? undefined : href} // avoid empty href on disabled
+    href={disabled ? undefined : href}
     tabIndex={disabled ? -1 : 0}
     aria-disabled={disabled ? "true" : "false"}
     onClick={disabled ? (e) => e.preventDefault() : props.onClick}

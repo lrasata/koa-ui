@@ -29,9 +29,9 @@ export const colors = {
     focus: "#00A6F4",
   },
   link: {
-    default: "#2563EB", // brighter blue
-    hover: "#1D4ED8", // darker blue
-    visited: "#7C3AED", // more vibrant purple
+    default: "#2563EB",
+    hover: "#1D4ED8",
+    visited: "#7C3AED",
     disabled: "#9CA3AF",
   },
   danger: {
