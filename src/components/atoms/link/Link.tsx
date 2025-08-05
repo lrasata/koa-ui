@@ -42,7 +42,6 @@ const StyledLink = styled.a<LinkProps>(({ theme, disabled }) => ({
   "&:visited": {
     color: theme.colors.link.visited,
     textDecorationColor: theme.colors.link.visited,
-    fontStyle: "italic",
     "*": {
       color: `${theme.colors.link.visited} !important`,
     },
