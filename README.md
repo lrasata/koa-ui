@@ -1,7 +1,6 @@
-# Koa UI — React Design System 
+# Koa UI — React Design System
 
 [![CI](https://github.com/lrasata/koa-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/lrasata/koa-ui/actions/workflows/ci.yml)
-
 
 <div style="text-align: center;">
 <img src="https://raw.githubusercontent.com/lrasata/koa-ui/refs/heads/main/docs/koa.png" alt="koa ui logo" width="200" />
@@ -19,7 +18,6 @@ It includes core components such as buttons, inputs, cards, modals, layout helpe
 - [Installation](#installation)
 - [Running storybook](#running-storybook)
 - [Components](#components)
-
 
 ---
 
@@ -62,7 +60,8 @@ You can override:
 - `breakpoints`
 - `zIndex`
 
---- 
+---
+
 ## Purpose
 
 _The Story Behind Koa UI_

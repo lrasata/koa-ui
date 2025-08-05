@@ -28,6 +28,12 @@ export const colors = {
     default: "#D4D4D8",
     focus: "#00A6F4",
   },
+  link: {
+    default: "#2563EB", // brighter blue
+    hover: "#1D4ED8", // darker blue
+    visited: "#7C3AED", // more vibrant purple
+    disabled: "#9CA3AF",
+  },
   danger: {
     light: "#fca5a5", // Light red (pressed, background highlight)
     main: "#b91c1c", // Main red (default)
