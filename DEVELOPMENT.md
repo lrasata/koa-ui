@@ -1,4 +1,3 @@
-
 ## Installation
 
 If you're working locally:
